@@ -1,0 +1,22 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:h="http://java.sun.com/jsf/html"
+	template="/resources/templates/template.xhtml" xmlns:pm="http://primefaces.org/mobile">
+
+	<ui:define name="template-customizado">
+
+		<ui:insert name="define-cadastro">
+
+			<pm:content id="panel_dialog">
+
+				<ui:insert name="define-cadastro-padrao" />
+
+				<p:commandButton value="#{label['sistema.botao.salvar']}" title="#{label['sistema.botao.salvar']}"
+					actionListener="#{padraoMB.executarSalvar()}" process="panel_dialog" update="panel_dialog" />
+
+			</pm:content>
+
+		</ui:insert>
+
+	</ui:define>
+
+</ui:composition>
