@@ -13,7 +13,7 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name = "CATEGORIA", schema="SPGF")
+@Table(name = "CATEGORIA")
 @NamedQuery(name = "Categoria.findAll", query = "SELECT c FROM Categoria c")
 public class Categoria extends ModelAb implements Serializable {
 	private static final long serialVersionUID = 1L;

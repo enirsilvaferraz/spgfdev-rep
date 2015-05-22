@@ -1,36 +1,49 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui" xmlns:h="http://java.sun.com/jsf/html"
-	template="/resources/templates/template-conf.xhtml" xmlns:pm="http://primefaces.org/mobile">
+	template="/resources/templates/template-conf.xhtml">
 
 	<ui:param name="param_titulo" value="#{label['transacao.conf.titulo']}" />
 	<ui:param name="padraoMB" value="#{transacaoConfMB}" />
 
 	<ui:define name="define-cadastro-padrao">
 
-		<pm:field>
-			<p:outputLabel value="#{label['transacao.conf.campo.data']}" for="transacao_data_cad" />
-			<p:calendar id="transacao_data_cad" value="#{transacaoConfMB.modelCad.data}" required="true" pattern="dd/MM/yyyy" />
-		</pm:field>
-
-		<pm:field>
-			<p:outputLabel value="#{label['transacao.conf.campo.valor']}" for="transacao_valor_cad" />
-			<p:inputText id="transacao_valor_cad" value="#{transacaoConfMB.modelCad.valor}" maxlength="10" required="true" />
-		</pm:field>
-
-		<pm:field>
-			<p:outputLabel value="#{label['transacao.conf.campo.categoria']}" for="transacao_categoria_cad" />
-			<p:selectOneMenu id="transacao_categoria_cad" value="#{transacaoConfMB.modelCad.categoria.codigo}" required="true">
-				<f:selectItem itemLabel="#{label['sistema.select.selecione']}" itemValue="#{null}" />
-				<f:selectItems value="#{transacaoConfMB.listCategoria}" var="item" itemLabel="#{item.label}"
-					itemValue="#{item.codigo}" />
-			</p:selectOneMenu>
-		</pm:field>
-
-		<pm:field>
-			<p:outputLabel value="#{label['transacao.conf.campo.descricao']}" for="transacao_descricao_cad" />
-			<p:inputText id="transacao_descricao_cad" value="#{transacaoConfMB.modelCad.descricao}" maxlength="50"
-				required="false" />
-		</pm:field>
+		<p:row>
+			<p:column>
+				<p:outputLabel value="#{label['transacao.conf.campo.data']}" for="transacao_data_cad" />
+			</p:column>
+			<p:column>
+				<p:inputText id="transacao_data_cad" value="#{transacaoConfMB.modelCad.data}" maxlength="10" required="true" />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<p:outputLabel value="#{label['transacao.conf.campo.valor']}" for="transacao_valor_cad" />
+			</p:column>
+			<p:column>
+				<p:inputText id="transacao_valor_cad" value="#{transacaoConfMB.modelCad.valor}" maxlength="10" required="true" />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<p:outputLabel value="#{label['transacao.conf.campo.categoria']}" for="transacao_categoria_cad" />
+			</p:column>
+			<p:column>
+				<p:selectOneMenu id="transacao_categoria_cad" value="#{transacaoConfMB.modelCad.categoria.codigo}" required="true">
+					<f:selectItem itemLabel="#{label['sistema.select.selecione']}" itemValue="#{null}" />
+					<f:selectItems value="#{transacaoConfMB.listCategoria}" var="item" itemLabel="#{item.label}"
+						itemValue="#{item.codigo}" />
+				</p:selectOneMenu>
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<p:outputLabel value="#{label['transacao.conf.campo.descricao']}" for="transacao_descricao_cad" />
+			</p:column>
+			<p:column>
+				<p:inputText id="transacao_descricao_cad" value="#{transacaoConfMB.modelCad.descricao}" maxlength="50"
+					required="false" />
+			</p:column>
+		</p:row>
 
 	</ui:define>
 

@@ -7,14 +7,9 @@
 
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>
-		<class>com.spgf.model.entities.Categoria</class>
-		<class>com.spgf.model.entities.Transacao</class>
-		
-		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
-<!-- 			<property name="hibernate.hbm2ddl.auto" value="validate" /> -->
 			<property name="hibernate.show_sql" value="true" />
 		</properties>
 

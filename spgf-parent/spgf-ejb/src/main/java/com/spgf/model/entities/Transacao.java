@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,13 +18,14 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.archtecture.model.entities.ModelAb;
+import com.spgf.model.entities.enums.TipoPagamento;
 
 /**
  * The persistent class for the transacao database table.
  * 
  */
 @Entity
-@Table(name = "TRANSACAO", schema = "SPGF")
+@Table(name = "TRANSACAO")
 @NamedQuery(name = "Transacao.findAll", query = "SELECT t FROM Transacao t")
 public class Transacao extends ModelAb implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -46,6 +48,10 @@ public class Transacao extends ModelAb implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "CATEGORIA", nullable = false)
 	private Categoria categoria;
+
+	@Enumerated
+	@Column(name = "TIPO_PAGAMENTO", nullable = false, precision = 10)
+	private TipoPagamento tipoPagamento;
 
 	public Transacao() {
 	}
@@ -92,6 +98,14 @@ public class Transacao extends ModelAb implements Serializable {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+
+	public TipoPagamento getTipoPagamento() {
+		return tipoPagamento;
+	}
+
+	public void setTipoPagamento(TipoPagamento tipoPagamento) {
+		this.tipoPagamento = tipoPagamento;
 	}
 
 	@Override
